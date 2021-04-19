@@ -10,7 +10,7 @@
 <title>Welcome</title>
 </head>
 <body>
-	<form:form id="xyx" method="post" action="searchEmployee" modelAttribute="login">
+	<form:form id="xyx" method="post" action="searchEmployee" modelAttribute="searchBean">
 		<c:choose>
 			<c:when test="${empty userDetails}">
 				<p>There are no users in system yet.</p>
@@ -20,7 +20,7 @@
 					style="height: 500px; width: 1905px;overflow-x: auto;overflow-y: auto; white-space: nowrap; font-size: 1em; color: #1572c1; font-family: Verdana, Arial, Sans-Serif; text-align: center;">
 					<table border="1" cellpadding="10">
 						<tr>
-							<td>Sl.No</td>
+							<td>#</td>
 							<td>Employee ID</td>
 							<td>First Name</td>
 							<td>Last Name</td>
@@ -31,7 +31,10 @@
 						</tr>
 						<c:forEach items="${userDetails}" var="user" varStatus="status">
 							<tr valign="top">
-								<td>${status.index}</td>
+								<%-- <td>${status.index}</td> --%>
+								<td>
+								 <form:radiobutton path="selectedEmp" value="${user.employeeId}" />  
+								</td>
 								<td>${user.employeeId}</td>
 								<td>${user.firstName}</td>
 								<td>${user.lastName}</td>
@@ -47,6 +50,7 @@
 					<table border="0" cellpadding="10">
 						<tr>
 							<td colspan="8">
+								<input type=submit value="Update" name="update">
 								<input type=submit value="BACK" name="cancel">
 							</td>
 						</tr>

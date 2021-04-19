@@ -5,6 +5,8 @@ public class Form
 		private String employeeId;
 
 		private String firstName;
+		
+		private String selectedEmp;
 
 		public String getEmployeeId() {
 			return employeeId;
@@ -22,7 +24,12 @@ public class Form
 			this.firstName = firstName;
 		}
 
-		
+		public String getSelectedEmp() {
+			return selectedEmp;
+		}
 
+		public void setSelectedEmp(String selectedEmp) {
+			this.selectedEmp = selectedEmp;
+		}
 
 }
